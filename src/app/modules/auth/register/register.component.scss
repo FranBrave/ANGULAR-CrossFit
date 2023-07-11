@@ -1,0 +1,88 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+  
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 300px;
+      padding: 20px;
+      background-color: #f7f7f7;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+      label {
+        display: block;
+        font-weight: bold;
+      }
+  
+      input {
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+  
+      button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+  
+        &:hover {
+          background-color: #45a049;
+        }
+      }
+    }
+    .from-here {
+        font-size: 12px;
+    }
+
+    .google-button {
+        margin-top: 19px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5px 8px 1.5px 1.5px;
+        background-color: #4285F4;
+        color: #FFFFFF;
+        border: none;
+        border-radius: 2px;
+        font-family: 'Roboto Medium', Arial, sans-serif;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      
+        &:hover {
+          background-color: #3367D6;
+        }
+      
+        .google-icon {
+          width: 35px;
+          height: 35px;
+          margin-right: 6px;
+          /* Añade aquí los estilos para el logotipo de Google */
+        }
+      }
+
+      .error-message {
+        color: red;
+        margin-top: 5px;
+        font-size: 14px;
+      }
+      
+}
