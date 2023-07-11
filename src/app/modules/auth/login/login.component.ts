@@ -21,7 +21,7 @@ export class LoginComponent {
       if (user) {
         console.log('Login successful for user: ', user.user.email);
         // Here, you can route the user to the dashboard or home page.
-        // this.router.navigate(['/home']);
+        this.router.navigate(['/profile']);
       } else {
         console.log('No user');
       }
@@ -36,6 +36,7 @@ export class LoginComponent {
       const user = await this.authService.signInWithGoogle();
       // Lógica adicional después de iniciar sesión correctamente
       console.log('logged with google: ', user.user.email);
+      this.router.navigate(['/profile']);
     } catch (err) {
       // Manejo de errores de inicio de sesión con Google
     };

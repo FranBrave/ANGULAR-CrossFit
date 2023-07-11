@@ -3,6 +3,18 @@
   <form (ngSubmit)="onRegister()" class="form-container">
     <div class="form">
       <div class="form-group">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" [(ngModel)]="name" name="name" required class="form-input">
+      </div>
+      <div class="form-group">
+        <label for="lastName1">Primer apellido:</label>
+        <input type="text" id="lastName1" [(ngModel)]="lastName1" name="lastName1" required class="form-input">
+      </div>
+      <div class="form-group">
+        <label for="lastName2">Segundo apellido:</label>
+        <input type="text" id="lastName2" [(ngModel)]="lastName2" name="lastName2" required class="form-input">
+      </div>
+      <div class="form-group">
         <label for="email">Correo electrónico:</label>
         <input type="email" id="email" [(ngModel)]="email" name="email" required class="form-input">
       </div>
@@ -19,9 +31,4 @@
     </div>
   </form>
   <p class="from-here">Si ya tienes cuenta, inicia sesión <a routerLink="/login">desde aquí</a>.</p>
-
-  <button class="google-button" (click)="onLoginWithGoogle()">
-    <img class="google-icon" src="../../../../assets/g-logo.png" />
-    Iniciar sesión con Google
-  </button>
 </div>

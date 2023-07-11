@@ -11,6 +11,7 @@ import {
   sendPasswordResetEmail
  } from "firebase/auth";
 import { Observable } from 'rxjs';
+import { getDatabase, ref, set } from "firebase/database";
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,7 @@ export class AuthService {
   user$: Observable<User | null>;
 
   private auth = getAuth();
+  private db = getDatabase();
 
   constructor() {
     // Get the auth state, then fetch the Firestore user document or return null
@@ -40,9 +42,15 @@ export class AuthService {
   }
 
   // Sign up with email/password
-  async signUp(email: string, password: string) {
+  async signUp(email: string, password: string, name: string, lastName1: string, lastName2: string) {
     try {
       const credential = await createUserWithEmailAndPassword(this.auth, email, password);
+      await set(ref(this.db, '/users/' + credential.user.uid), {
+        name,
+        lastName1,
+        lastName2,
+        email
+      });
       return credential;
     } catch (error) {
       console.log(error);
@@ -72,8 +80,8 @@ export class AuthService {
     };
   };
 
-   // Send password reset email
-   async sendPasswordResetEmail(email: string) {
+  // Send password reset email
+  async sendPasswordResetEmail(email: string) {
     try {
       await sendPasswordResetEmail(this.auth, email);
       // El correo electrónico de restablecimiento de contraseña se ha enviado con éxito
@@ -82,5 +90,4 @@ export class AuthService {
       throw error; // Propagate error up
     }
   }
-
 };
